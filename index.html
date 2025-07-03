@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>County Names & Lines | What County Am I In? | County Lines Map App | iOS</title>
+  <meta name="description" content="Instantly discover what county you're in with County Names & Lines. View county lines, boundaries, and names on an interactive map. Perfect for travelers, surveyors, and outdoor enthusiasts.">
+  <meta name="keywords" content="county lines, county names, what county am I in, county boundaries, county finder, map app, iOS county app, county identification, land surveyor tools, county map">
+  <meta name="author" content="Mobile Card Games & Travel Apps LLC">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-itunes-app" content="app-id=6474261068">
+  <link rel="canonical" href="https://mobilegames.cloud/county/index.html">
+  <link rel="icon" href="images/app-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/app-icon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mobilegames.cloud/county/index.html">
+  <meta property="og:image" content="https://mobilegames.cloud/county/images/app-icon.png">
+  <meta property="og:title" content="County Names & Lines | What County Am I In?">
+  <meta property="og:description" content="Instantly discover what county you're in with interactive county lines and boundaries. Perfect for travelers, surveyors, and outdoor enthusiasts.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mobilegames.cloud/county/index.html">
+  <meta property="twitter:image" content="https://mobilegames.cloud/county/images/app-icon.png">
+  <meta property="twitter:title" content="County Names & Lines | What County Am I In?">
+  <meta property="twitter:description" content="Instantly discover what county you're in with interactive county lines and boundaries. Perfect for travelers, surveyors, and outdoor enthusiasts.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "County Names & Lines",
+    "operatingSystem": "iOS",
+    "applicationCategory": "NavigationApplication, UtilitiesApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.2",
+      "reviewCount": "9"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "url": "https://apps.apple.com/app/apple-store/id6474261068",
+    "description": "Instantly discover what county you're in with County Names & Lines. View county lines, boundaries, and names on an interactive map.",
+    "applicationSubCategory": "Navigation",
+    "datePublished": "2024-01-01"
+  }
+  </script>
+  
+  <style>
+    :root {
+      --primary-color: #8B4513;
+      --primary-hover: #A0522D;
+      --accent-color: #DAA520;
+      --accent-hover: #B8860B;
+      --earth-brown: #8B4513;
+      --harvest-gold: #DAA520;
+      --forest-green: #228B22;
+      --wheat-tan: #F5DEB3;
+      --barn-red: #8B0000;
+      --sky-blue: #87CEEB;
+      --dark-text: #2F1B14;
+      --light-text: #5D4037;
+      --cream: #FFF8DC;
+      --white: #ffffff;
+      --light-gray: #F5F5F5;
+      --rounded: 16px;
+      --shadow: 0 8px 32px rgba(139, 69, 19, 0.15);
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body { 
+      font-family: 'Source Sans Pro', sans-serif; 
+      line-height: 1.6; 
+      color: var(--dark-text); 
+      background: linear-gradient(135deg, var(--cream) 0%, var(--wheat-tan) 100%);
+      background-attachment: fixed;
+    }
+    
+    html { 
+      scroll-behavior: smooth; 
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Crimson Text', serif;
+      line-height: 1.3;
+      font-weight: 700;
+      color: var(--earth-brown);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255, 248, 220, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--harvest-gold);
+      box-shadow: 0 2px 20px rgba(139, 69, 19, 0.1);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      height: 70px;
+      position: relative;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo img {
+      height: 50px;
+      border-radius: var(--rounded);
+      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+    }
+    
+    .logo h1 {
+      font-size: 1.4rem;
+      margin: 0;
+      font-weight: 700;
+      color: var(--earth-brown);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      font-weight: 600;
+      color: var(--light-text);
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .app-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--rounded);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      gap: 0.4rem;
+      border: 2px solid transparent;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+    }
+    
+    .btn-secondary {
+      background: var(--wheat-tan);
+      color: var(--primary-color);
+      border: 2px solid var(--harvest-gold);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--harvest-gold);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    .get-app-btn, .qr-button, .qr-button-top {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: var(--white);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      gap: 0.4rem;
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    
+    .get-app-btn:hover, .qr-button:hover, .qr-button-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+    }
+    
+    /* QR Popup Styles */
+    .qr-popup {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--white);
+      border-radius: var(--rounded);
+      padding: 1rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      width: 180px;
+      text-align: center;
+      border: 2px solid var(--harvest-gold);
+    }
+    
+    .qr-popup-top {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border-radius: var(--rounded);
+      padding: 1rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      width: 180px;
+      text-align: center;
+      border: 2px solid var(--harvest-gold);
+    }
+    
+    @media (hover: hover) {
+      .get-app-btn:hover .qr-popup, 
+      .qr-button:hover .qr-popup, 
+      .qr-button-top:hover .qr-popup-top {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    @media (hover: none) {
+      .qr-popup, .qr-popup-top {
+        display: none !important;
+      }
+    }
+    
+    .qr-popup img, .qr-popup-top img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .qr-popup p, .qr-popup-top p {
+      color: var(--dark-text);
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      color: var(--primary-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 6rem;
+      background: linear-gradient(135deg, var(--forest-green) 0%, var(--primary-color) 50%, var(--harvest-gold) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 20h60v60h-60z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><path d="M30 30h40v40h-40z" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/></svg>') repeat;
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      font-size: 3rem;
+      color: var(--white);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-tagline {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .rating {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .rating i {
+      color: #FFD700;
+      margin-right: 2px;
+    }
+    
+    .hero-benefits {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+    
+    .hero-benefits li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.95);
+    }
+    
+    .hero-benefits i {
+      color: var(--harvest-gold);
+      font-size: 1.25rem;
+    }
+    
+    .hero-image {
+      flex: 1;
+      position: relative;
+      text-align: center;
+      max-width: 400px;
+    }
+    
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: linear-gradient(45deg, var(--harvest-gold), transparent, var(--harvest-gold));
+      border-radius: 30px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 6rem 0;
+      background: var(--white);
+      position: relative;
+    }
+    
+    .features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(139,69,19,0.03)" stroke-width="2"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(139,69,19,0.02)" stroke-width="1"/></svg>') repeat;
+      opacity: 0.5;
+    }
+    
+    .section-heading {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .section-heading h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      color: var(--earth-brown);
+    }
+    
+    .section-heading p {
+      font-size: 1.125rem;
+      color: var(--light-text);
+    }
+    
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .feature-item {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: var(--rounded);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid var(--wheat-tan);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(139, 69, 19, 0.2);
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--harvest-gold), var(--accent-hover));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(218, 165, 32, 0.3);
+    }
+    
+    .feature-item h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: var(--earth-brown);
+    }
+    
+    .feature-item p {
+      font-size: 1rem;
+      color: var(--light-text);
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--earth-brown) 0%, var(--primary-hover) 100%);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      margin: 4rem 0;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10 10L90 90M90 10L10 90" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+      opacity: 0.3;
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .cta-section .btn {
+      background: var(--white);
+      color: var(--earth-brown);
+      border: 2px solid var(--harvest-gold);
+      position: relative;
+      z-index: 3;
+    }
+    
+    .cta-section .btn:hover {
+      background: var(--harvest-gold);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
+    }
+    
+    .cta-section .qr-popup-top p {
+      color: var(--dark-text);
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+    
+    /* SMS Section */
+    .sms-section {
+      background: var(--wheat-tan);
+      border-radius: var(--rounded);
+      padding: 3rem;
+      margin: 3rem 0;
+      text-align: center;
+      border: 2px solid var(--harvest-gold);
+    }
+    
+    .sms-section h3 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: var(--earth-brown);
+    }
+    
+    .sms-intro {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: var(--light-text);
+    }
+    
+    .sms-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .sms-form input[type="tel"] {
+      padding: 16px;
+      border: 2px solid var(--harvest-gold);
+      border-radius: 30px;
+      font-size: 1rem;
+      background: var(--white);
+    }
+    
+    .sms-form input[type="submit"] {
+      padding: 16px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+    
+    .sms-form input[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+    }
+    
+    .consent-text {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--light-text);
+      text-align: left;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      background: var(--earth-brown);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: left;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      border-radius: 10px;
+    }
+    
+    .footer-logo h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+      color: var(--white);
+    }
+    
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .footer-links h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.2s ease;
+    }
+    
+    .footer-links ul li a:hover {
+      color: var(--white);
+      padding-left: 0.25rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+    
+    /* Sticky CTA for Mobile */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      padding: 15px;
+      box-shadow: 0 -2px 20px rgba(139, 69, 19, 0.2);
+      z-index: 100;
+      text-align: center;
+      border-top: 2px solid var(--harvest-gold);
+    }
+    
+    .sticky-cta a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: var(--white);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      width: 80%;
+      max-width: 300px;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Responsive Styles */
+    @media screen and (max-width: 1100px) {
+      .app-cta {
+        gap: 0.5rem;
+      }
+      
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .get-app-btn, .qr-button, .qr-button-top {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media screen and (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text, .hero-image {
+        max-width: 100%;
+      }
+      
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 1.5rem;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(139, 69, 19, 0.2);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .app-cta {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-heading h2 {
+        font-size: 2rem;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .sms-form {
+        flex-direction: column;
+      }
+      
+      .sticky-cta {
+        display: block;
+      }
+    }
+    
+    @media screen and (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-heading h2 {
+        font-size: 1.75rem;
+      }
+      
+      .cta-section, .sms-section {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="images/app-icon.png" alt="County Names & Lines App Icon">
+          <h1>County Names & Lines</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </nav>
+        <div class="app-cta">
+          <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text me the Link</a>
+          <a href="https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=mobilecloudlandingpage&mt=8" class="get-app-btn">
+            <i class="fab fa-apple"></i> Get Free App
+            <div class="qr-popup">
+              <img src="images/qrcode.png" alt="App Store QR Code">
+              <p>Scan to download</p>
+            </div>
+          </a>
+        </div>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.2/5 on the App Store
+          </div>
+          <h1>What County Am I In?</h1>
+          <p class="hero-tagline">Instantly discover your county with precise county lines and boundaries. Perfect for travelers, surveyors, law enforcement, and outdoor enthusiasts.</p>
+          <ul class="hero-benefits">
+            <li><i class="fas fa-map-marked-alt"></i> Instantly displays county name and boundaries</li>
+            <li><i class="fas fa-search-location"></i> Address search for any U.S. county</li>
+            <li><i class="fas fa-wifi"></i> Works completely offline</li>
+            <li><i class="fas fa-tachometer-alt"></i> Shows current speed limit</li>
+          </ul>
+          <div class="hero-cta">
+            <a href="https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn btn-primary qr-button-top">
+              <i class="fab fa-apple"></i> Get Free App
+              <div class="qr-popup-top">
+                <img src="images/qrcode.png" alt="App Store QR Code">
+                <p>Scan to download</p>
+              </div>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text Me the Link</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/screenshot.png" alt="County Names & Lines App Screenshot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Perfect for Every Journey</h2>
+        <p>Whether you're traveling, surveying, or exploring the great outdoors</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-badge-sheriff"></i></div>
+          <h3>Law Enforcement</h3>
+          <p>No more guesswork about jurisdiction. Instantly know what county you're in with precise boundary information and crossing notifications.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h3>Land Surveyors</h3>
+          <p>Get precise county boundary lines and coastal boundaries. Essential tool for professional surveying and land development projects.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-route"></i></div>
+          <h3>Road Trip Enthusiasts</h3>
+          <p>Track your journey across county lines. Perfect for county hunters and travelers exploring different regions of the United States.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-binoculars"></i></div>
+          <h3>Birders & Nature Lovers</h3>
+          <p>Document your wildlife sightings with precise location data. Know exactly which county you spotted that rare bird or unique flora.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-anchor"></i></div>
+          <h3>Boaters & Mariners</h3>
+          <p>Navigate coastal waters with confidence. View coastal county boundary lines and know your exact jurisdictional waters.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-mountain"></i></div>
+          <h3>Outdoor Adventurers</h3>
+          <p>Explore with confidence knowing your exact location. Interactive map with zoom and pan features for detailed exploration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS Section -->
+  <div class="container">
+    <section class="sms-section" id="sms">
+      <h3>Get the App Link via SMS</h3>
+      <p class="sms-intro">Enter your mobile number and we'll send you a direct download link to find out what county you're in right now</p>
+      <form id="smsForm" class="sms-form" aria-label="SMS app link request form">
+        <input type="tel" name="phone" placeholder="Enter your mobile number" required aria-label="Your mobile phone number">
+        <input type="submit" value="Send Me the App">
+        <p class="consent-text">
+          By clicking "Send Me the App", you consent to receive a one-time SMS message with your app download link. Message & data rates may apply. Reply HELP for help, STOP to cancel. Your consent is not required as a condition to purchase.
+        </p>
+      </form>
+    </section>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="container">
+    <section class="cta-section" id="download">
+      <h2>Never Wonder "What County Am I In?" Again</h2>
+      <p>Download County Names & Lines today and always know your precise location with detailed county lines and boundaries.</p>
+      <a href="https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn qr-button-top">
+        <i class="fab fa-apple"></i> Get Free App
+        <div class="qr-popup-top">
+          <img src="images/qrcode.png" alt="App Store QR Code">
+          <p>Scan to download</p>
+        </div>
+      </a>
+    </section>
+  </div>
+
+  <!-- Sticky CTA for Mobile -->
+  <div class="sticky-cta">
+    <a href="https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=mobilecloudlandingpage&mt=8" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-download"></i> Get Free App
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="images/app-icon.png" alt="County Names & Lines Logo">
+            <h2>County Names & Lines</h2>
+          </div>
+          <p>The essential app for discovering county names and boundaries across the United States. Perfect for travelers, professionals, and outdoor enthusiasts.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="https://www.privacypolicies.com/generic/">Privacy Policy</a></li>
+            <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li>Email: <code>v5cqpsj4e3u4 @ opayq dot com</code></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Mobile Card Games & Travel Apps LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Function to scroll to SMS section
+    function scrollToSMS() {
+      const smsSection = document.getElementById('sms');
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
+      
+      window.scrollTo({
+        top: smsPosition - headerHeight - 20,
+        behavior: 'smooth'
+      });
+    }
+    
+    // SMS Form Submission
+    document.getElementById('smsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var phone = this.phone.value;
+      fetch('https://sms-send-1082524592245.us-central1.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: phone,
+          appName: 'County Names & Lines',
+          appLink: 'https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=smsLink&mt=8'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('App link sent! Check your phone in a moment.');
+          this.reset();
+        } else {
+          alert('Error sending SMS: ' + data.error);
+        }
+      })
+      .catch(err => console.error(err));
+    });
+    
+    // Show/hide sticky CTA based on scroll position
+    window.addEventListener('scroll', function() {
+      const stickyCta = document.querySelector('.sticky-cta');
+      const heroSection = document.getElementById('home');
+      
+      if (window.scrollY > heroSection.offsetHeight) {
+        stickyCta.style.display = 'block';
+      } else {
+        stickyCta.style.display = 'none';
+      }
+    });
+    
+    // Disable hover for touch devices
+    document.addEventListener('DOMContentLoaded', function() {
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        const qrPopups = document.querySelectorAll('.qr-popup, .qr-popup-top');
+        qrPopups.forEach(popup => {
+          popup.style.display = 'none';
+        });
+        
+        const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
+        qrButtons.forEach(button => {
+          button.style.pointerEvents = 'auto';
+        });
+      }
+    });
+  </script>
+  <!-- 100% privacy-first analytics -->
+  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
