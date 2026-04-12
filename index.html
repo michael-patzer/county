@@ -12,24 +12,24 @@
   <link rel="canonical" href="https://countyname.app/">
   <link rel="icon" href="images/app-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="images/app-icon.png">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://countyname.app/">
   <meta property="og:image" content="https://countyname.app/images/app-icon.png">
   <meta property="og:title" content="County Names & Lines | What County Am I In?">
   <meta property="og:description" content="Instantly discover what county you're in with interactive county lines and boundaries. Perfect for travelers, surveyors, and outdoor enthusiasts.">
-  
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://countyname.app/">
   <meta property="twitter:image" content="https://countyname.app/images/app-icon.png">
   <meta property="twitter:title" content="County Names & Lines | What County Am I In?">
   <meta property="twitter:description" content="Instantly discover what county you're in with interactive county lines and boundaries. Perfect for travelers, surveyors, and outdoor enthusiasts.">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,79 +53,103 @@
     "datePublished": "2024-01-01"
   }
   </script>
-  
+
   <style>
     :root {
-      --primary-color: #8B4513;
-      --primary-hover: #A0522D;
-      --accent-color: #DAA520;
-      --accent-hover: #B8860B;
-      --earth-brown: #8B4513;
-      --harvest-gold: #DAA520;
-      --forest-green: #228B22;
-      --wheat-tan: #F5DEB3;
-      --barn-red: #8B0000;
-      --sky-blue: #87CEEB;
-      --dark-text: #2F1B14;
-      --light-text: #5D4037;
-      --cream: #FFF8DC;
+      --parchment: #f5f0e8;
+      --parchment-dark: #ece5d8;
+      --forest: #1a3a2a;
+      --forest-mid: #244a36;
+      --topo-green: #2d6a4f;
+      --topo-green-light: #3d8b6a;
+      --copper: #b07d42;
+      --copper-light: #c99a5c;
+      --copper-dark: #8f6430;
+      --teal: #4a9e8f;
+      --teal-light: #6bbdad;
+      --dark-text: #1a3a2a;
+      --body-text: #3a5a48;
+      --muted-text: #6b8a78;
       --white: #ffffff;
-      --light-gray: #F5F5F5;
-      --rounded: 16px;
-      --shadow: 0 8px 32px rgba(139, 69, 19, 0.15);
+      --card-bg: #faf7f2;
+      --rounded: 12px;
+      --rounded-lg: 20px;
+      --shadow: 0 4px 24px rgba(26, 58, 42, 0.10);
+      --shadow-lg: 0 12px 48px rgba(26, 58, 42, 0.15);
     }
-    
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
-    body { 
-      font-family: 'Source Sans Pro', sans-serif; 
-      line-height: 1.6; 
-      color: var(--dark-text); 
-      background: linear-gradient(135deg, var(--cream) 0%, var(--wheat-tan) 100%);
-      background-attachment: fixed;
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      line-height: 1.7;
+      color: var(--dark-text);
+      background: var(--parchment);
     }
-    
-    html { 
-      scroll-behavior: smooth; 
+
+    html {
+      scroll-behavior: smooth;
     }
-    
+
     h1, h2, h3, h4 {
-      font-family: 'Crimson Text', serif;
-      line-height: 1.3;
+      font-family: 'Bitter', serif;
+      line-height: 1.25;
       font-weight: 700;
-      color: var(--earth-brown);
+      color: var(--forest);
     }
-    
+
     a {
       text-decoration: none;
       color: inherit;
     }
-    
+
     .container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-    
-    /* Header Styles */
+
+    /* ============================================
+       SCROLL ANIMATIONS
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ============================================
+       HEADER
+       ============================================ */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(255, 248, 220, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--harvest-gold);
-      box-shadow: 0 2px 20px rgba(139, 69, 19, 0.1);
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(26, 58, 42, 0.08);
+      box-shadow: 0 1px 12px rgba(26, 58, 42, 0.06);
+      transition: all 0.3s ease;
     }
-    
+
     .nav-container {
       display: flex;
       justify-content: space-between;
@@ -134,43 +158,47 @@
       height: 70px;
       position: relative;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    
+
     .logo img {
-      height: 50px;
-      border-radius: var(--rounded);
-      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(26, 58, 42, 0.15);
     }
-    
+
     .logo h1 {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       margin: 0;
       font-weight: 700;
-      color: var(--earth-brown);
+      color: var(--forest);
+      letter-spacing: -0.01em;
     }
-    
+
     .nav-links {
       display: flex;
       list-style: none;
       align-items: center;
       gap: 2rem;
     }
-    
+
     .nav-links a {
       font-weight: 600;
-      color: var(--light-text);
+      color: var(--body-text);
       transition: color 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
-    
+
     .nav-links a:hover {
-      color: var(--primary-color);
+      color: var(--topo-green);
     }
-    
+
     .app-cta {
       display: flex;
       align-items: center;
@@ -178,68 +206,74 @@
       flex-shrink: 0;
       min-width: 0;
     }
-    
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.6rem 1.2rem;
-      border-radius: var(--rounded);
-      font-weight: 600;
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: 'Nunito Sans', sans-serif;
       transition: all 0.3s ease;
       font-size: 0.9rem;
-      gap: 0.4rem;
+      gap: 0.5rem;
       border: 2px solid transparent;
       white-space: nowrap;
       min-width: 0;
+      letter-spacing: 0.02em;
     }
-    
+
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      background: var(--topo-green);
       color: var(--white);
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
     }
-    
+
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+      background: var(--topo-green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(45, 106, 79, 0.3);
     }
-    
+
     .btn-secondary {
-      background: var(--wheat-tan);
-      color: var(--primary-color);
-      border: 2px solid var(--harvest-gold);
+      background: transparent;
+      color: var(--topo-green);
+      border: 2px solid var(--topo-green);
     }
-    
+
     .btn-secondary:hover {
-      background: var(--harvest-gold);
+      background: var(--topo-green);
       color: var(--white);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
-    
+
     .get-app-btn, .qr-button, .qr-button-top {
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.6rem 1.2rem;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      padding: 0.6rem 1.3rem;
+      background: var(--topo-green);
       color: var(--white);
-      border-radius: var(--rounded);
-      font-weight: 600;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: 'Nunito Sans', sans-serif;
       transition: all 0.3s ease;
-      gap: 0.4rem;
-      box-shadow: var(--shadow);
+      gap: 0.5rem;
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
       font-size: 0.9rem;
       white-space: nowrap;
       min-width: 0;
+      letter-spacing: 0.02em;
     }
-    
+
     .get-app-btn:hover, .qr-button:hover, .qr-button-top:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+      background: var(--topo-green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(45, 106, 79, 0.3);
     }
-    
+
     /* QR Popup Styles */
     .qr-popup {
       position: absolute;
@@ -248,16 +282,16 @@
       background: var(--white);
       border-radius: var(--rounded);
       padding: 1rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
       z-index: 9999;
       width: 180px;
       text-align: center;
-      border: 2px solid var(--harvest-gold);
+      border: 2px solid var(--teal);
     }
-    
+
     .qr-popup-top {
       position: absolute;
       bottom: calc(100% + 10px);
@@ -266,156 +300,192 @@
       background: var(--white);
       border-radius: var(--rounded);
       padding: 1rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
       z-index: 9999;
       width: 180px;
       text-align: center;
-      border: 2px solid var(--harvest-gold);
+      border: 2px solid var(--teal);
     }
-    
+
     @media (hover: hover) {
-      .get-app-btn:hover .qr-popup, 
-      .qr-button:hover .qr-popup, 
+      .get-app-btn:hover .qr-popup,
+      .qr-button:hover .qr-popup,
       .qr-button-top:hover .qr-popup-top {
         opacity: 1;
         visibility: visible;
       }
     }
-    
+
     @media (hover: none) {
       .qr-popup, .qr-popup-top {
         display: none !important;
       }
     }
-    
+
     .qr-popup img, .qr-popup-top img {
       width: 150px;
       height: 150px;
       margin-bottom: 0.5rem;
     }
-    
+
     .qr-popup p, .qr-popup-top p {
       color: var(--dark-text);
       font-size: 0.875rem;
       margin-bottom: 0;
     }
-    
+
     .hamburger {
       display: none;
       cursor: pointer;
       width: 24px;
       height: 24px;
-      color: var(--primary-color);
+      color: var(--forest);
     }
-    
-    /* Hero Section */
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
     .hero {
-      padding: 8rem 0 6rem;
-      background: linear-gradient(135deg, var(--forest-green) 0%, var(--primary-color) 50%, var(--harvest-gold) 100%);
+      padding: 10rem 0 7rem;
+      background: var(--forest);
       color: var(--white);
       position: relative;
       overflow: hidden;
     }
-    
+
+    /* Topographic contour pattern - layered SVG lines */
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 20h60v60h-60z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><path d="M30 30h40v40h-40z" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/></svg>') repeat;
-      opacity: 0.3;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath d='M-50 350 Q100 280 200 320 Q350 380 450 300 Q550 220 700 260 Q850 300 950 240' fill='none' stroke='rgba(74,158,143,0.12)' stroke-width='1.5'/%3E%3Cpath d='M-50 380 Q120 310 220 350 Q370 410 470 330 Q570 250 720 290 Q870 330 950 270' fill='none' stroke='rgba(74,158,143,0.09)' stroke-width='1.2'/%3E%3Cpath d='M-50 410 Q140 340 240 380 Q390 440 490 360 Q590 280 740 320 Q890 360 950 300' fill='none' stroke='rgba(74,158,143,0.07)' stroke-width='1'/%3E%3Cpath d='M-50 200 Q80 150 200 180 Q350 220 450 160 Q580 90 700 140 Q830 190 950 130' fill='none' stroke='rgba(74,158,143,0.10)' stroke-width='1.2'/%3E%3Cpath d='M-50 230 Q100 180 220 210 Q370 250 470 190 Q600 120 720 170 Q850 220 950 160' fill='none' stroke='rgba(74,158,143,0.07)' stroke-width='1'/%3E%3Cpath d='M-50 140 Q60 100 180 120 Q330 160 430 100 Q560 30 680 80 Q810 130 950 70' fill='none' stroke='rgba(74,158,143,0.06)' stroke-width='0.8'/%3E%3Cpath d='M-50 480 Q160 420 260 450 Q410 500 510 430 Q610 360 760 400 Q910 440 950 380' fill='none' stroke='rgba(74,158,143,0.05)' stroke-width='0.8'/%3E%3C/svg%3E") no-repeat center / cover;
+      opacity: 1;
+      z-index: 0;
     }
-    
+
+    /* Grid overlay reminiscent of map coordinates */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(74,158,143,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,158,143,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
     .hero-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4rem;
+      gap: 5rem;
       position: relative;
       z-index: 2;
     }
-    
+
     .hero-text {
       flex: 1;
     }
-    
+
     .hero h1 {
       margin-bottom: 1.5rem;
-      font-size: 3rem;
+      font-size: 3.5rem;
+      font-weight: 800;
       color: var(--white);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
-    
+
     .hero-tagline {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      color: rgba(245, 240, 232, 0.85);
+      line-height: 1.7;
+      max-width: 520px;
     }
-    
+
     .rating {
-      display: inline-block;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      background: rgba(255,255,255,0.2);
-      padding: 8px 16px;
-      border-radius: 25px;
-      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: rgba(74, 158, 143, 0.15);
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(74, 158, 143, 0.25);
+      color: var(--teal-light);
     }
-    
+
     .rating i {
-      color: #FFD700;
-      margin-right: 2px;
+      color: var(--copper-light);
+      margin-right: 1px;
     }
-    
+
     .hero-benefits {
       list-style: none;
       margin-bottom: 2.5rem;
     }
-    
+
     .hero-benefits li {
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      color: rgba(255,255,255,0.95);
+      gap: 0.85rem;
+      color: rgba(245, 240, 232, 0.9);
+      font-size: 1.05rem;
     }
-    
+
     .hero-benefits i {
-      color: var(--harvest-gold);
-      font-size: 1.25rem;
+      color: var(--teal);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
     }
-    
+
     .hero-image {
       flex: 1;
       position: relative;
       text-align: center;
       max-width: 400px;
     }
-    
+
     .hero-image::before {
       content: '';
       position: absolute;
-      top: -20px;
-      left: -20px;
-      right: -20px;
-      bottom: -20px;
-      background: linear-gradient(45deg, var(--harvest-gold), transparent, var(--harvest-gold));
-      border-radius: 30px;
+      top: -16px;
+      left: -16px;
+      right: -16px;
+      bottom: -16px;
+      border-radius: 28px;
+      border: 2px solid rgba(74, 158, 143, 0.2);
       z-index: -1;
-      opacity: 0.3;
     }
-    
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top: -32px;
+      left: -32px;
+      right: -32px;
+      bottom: -32px;
+      border-radius: 36px;
+      border: 1px solid rgba(74, 158, 143, 0.08);
+      z-index: -1;
+    }
+
     .hero-image img {
       width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
     }
-    
+
     .hero-cta {
       display: flex;
       gap: 1rem;
@@ -423,301 +493,471 @@
       position: relative;
       z-index: 10;
     }
-    
-    /* Features Section */
-    .features {
-      padding: 6rem 0;
-      background: var(--white);
-      position: relative;
+
+    .hero-cta .btn-primary {
+      background: var(--copper);
+      box-shadow: 0 4px 20px rgba(176, 125, 66, 0.35);
     }
-    
+    .hero-cta .btn-primary:hover {
+      background: var(--copper-light);
+      box-shadow: 0 8px 32px rgba(176, 125, 66, 0.4);
+    }
+    .hero-cta .btn-secondary {
+      color: var(--teal-light);
+      border-color: var(--teal);
+    }
+    .hero-cta .btn-secondary:hover {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    /* Compass rose decorative element */
+    .compass-rose {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      width: 80px;
+      height: 80px;
+      opacity: 0.08;
+      z-index: 1;
+    }
+
+    /* ============================================
+       FEATURES SECTION - Topographic Trail Layout
+       ============================================ */
+    .features {
+      padding: 7rem 0;
+      background: var(--parchment);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle contour background for features section */
     .features::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(139,69,19,0.03)" stroke-width="2"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(139,69,19,0.02)" stroke-width="1"/></svg>') repeat;
-      opacity: 0.5;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Cellipse cx='300' cy='200' rx='250' ry='150' fill='none' stroke='rgba(45,106,79,0.04)' stroke-width='1.5'/%3E%3Cellipse cx='300' cy='200' rx='200' ry='120' fill='none' stroke='rgba(45,106,79,0.03)' stroke-width='1'/%3E%3Cellipse cx='300' cy='200' rx='150' ry='90' fill='none' stroke='rgba(45,106,79,0.025)' stroke-width='0.8'/%3E%3Cellipse cx='300' cy='200' rx='100' ry='60' fill='none' stroke='rgba(45,106,79,0.02)' stroke-width='0.6'/%3E%3C/svg%3E") no-repeat center / cover;
+      opacity: 1;
     }
-    
+
     .section-heading {
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto 4rem;
+      max-width: 700px;
+      margin: 0 auto 5rem;
       position: relative;
       z-index: 2;
     }
-    
+
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--copper);
+      margin: 1.25rem auto 0;
+      border-radius: 2px;
+    }
+
     .section-heading h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       font-size: 2.5rem;
-      color: var(--earth-brown);
+      color: var(--forest);
+      letter-spacing: -0.01em;
     }
-    
+
     .section-heading p {
-      font-size: 1.125rem;
-      color: var(--light-text);
+      font-size: 1.15rem;
+      color: var(--muted-text);
     }
-    
-    .feature-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+
+    /* Trail-connected two-column feature layout */
+    .feature-trail {
       position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
       z-index: 2;
     }
-    
+
+    /* Dotted vertical trail line */
+    .feature-trail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        var(--teal) 0px,
+        var(--teal) 6px,
+        transparent 6px,
+        transparent 14px
+      );
+      opacity: 0.35;
+    }
+
     .feature-item {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: var(--rounded);
-      text-align: center;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 2px solid var(--wheat-tan);
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      position: relative;
     }
-    
-    .feature-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 48px rgba(139, 69, 19, 0.2);
+    .feature-item:last-child {
+      margin-bottom: 0;
     }
-    
-    .feature-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--harvest-gold), var(--accent-hover));
-      border-radius: 20px;
+
+    /* Alternating layout */
+    .feature-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .feature-item:nth-child(even) .feature-card {
+      text-align: right;
+    }
+
+    /* Step number (map legend marker) on the trail */
+    .feature-marker {
+      position: absolute;
+      left: 50%;
+      top: 1.5rem;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      background: var(--forest);
+      color: var(--copper-light);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 2.5rem;
-      color: var(--white);
-      box-shadow: 0 8px 24px rgba(218, 165, 32, 0.3);
+      font-family: 'Bitter', serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      z-index: 3;
+      box-shadow: 0 4px 16px rgba(26, 58, 42, 0.25);
+      border: 3px solid var(--parchment);
     }
-    
-    .feature-item h3 {
-      margin-bottom: 15px;
+
+    .feature-card {
+      flex: 1;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      max-width: calc(50% - 3rem);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-spacer {
+      flex: 1;
+      max-width: calc(50% - 3rem);
+    }
+
+    .feature-card-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--topo-green), var(--teal));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
       font-size: 1.5rem;
-      color: var(--earth-brown);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
     }
-    
-    .feature-item p {
+    .feature-item:nth-child(even) .feature-card-icon {
+      margin-left: auto;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
+      color: var(--forest);
+    }
+
+    .feature-card p {
       font-size: 1rem;
-      color: var(--light-text);
-      margin-bottom: 15px;
-      line-height: 1.7;
+      color: var(--body-text);
+      line-height: 1.75;
     }
-    
-    /* CTA Section */
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
     .cta-section {
-      background: linear-gradient(135deg, var(--earth-brown) 0%, var(--primary-hover) 100%);
-      border-radius: 24px;
-      padding: 4rem 3rem;
+      background: var(--forest);
+      border-radius: var(--rounded-lg);
+      padding: 4.5rem 3rem;
       margin: 4rem 0;
       text-align: center;
       color: var(--white);
       position: relative;
       overflow: hidden;
     }
-    
+
     .cta-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10 10L90 90M90 10L10 90" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
-      opacity: 0.3;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M-20 100 Q80 60 160 90 Q260 130 340 80 Q420 30 500 70' fill='none' stroke='rgba(74,158,143,0.1)' stroke-width='1.2'/%3E%3Cpath d='M-20 130 Q80 90 160 120 Q260 160 340 110 Q420 60 500 100' fill='none' stroke='rgba(74,158,143,0.07)' stroke-width='1'/%3E%3Cpath d='M-20 70 Q80 30 160 60 Q260 100 340 50 Q420 0 500 40' fill='none' stroke='rgba(74,158,143,0.06)' stroke-width='0.8'/%3E%3C/svg%3E") no-repeat center / cover;
     }
-    
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(74,158,143,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,158,143,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
     .cta-section h2 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       color: var(--white);
       font-size: 2.5rem;
       position: relative;
       z-index: 2;
+      letter-spacing: -0.01em;
     }
-    
+
     .cta-section p {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(245, 240, 232, 0.8);
       margin-bottom: 2rem;
-      font-size: 1.125rem;
-      max-width: 700px;
+      font-size: 1.15rem;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
       z-index: 2;
     }
-    
+
     .cta-section .btn {
-      background: var(--white);
-      color: var(--earth-brown);
-      border: 2px solid var(--harvest-gold);
+      background: var(--copper);
+      color: var(--white);
+      border: none;
       position: relative;
       z-index: 3;
+      box-shadow: 0 4px 20px rgba(176, 125, 66, 0.35);
     }
-    
+
     .cta-section .btn:hover {
-      background: var(--harvest-gold);
-      color: var(--white);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
+      background: var(--copper-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(176, 125, 66, 0.4);
     }
-    
+
     .cta-section .qr-popup-top p {
       color: var(--dark-text);
       font-size: 0.875rem;
       margin-bottom: 0;
     }
-    
-    /* SMS Section */
+
+    /* ============================================
+       SMS SECTION
+       ============================================ */
     .sms-section {
-      background: var(--wheat-tan);
-      border-radius: var(--rounded);
-      padding: 3rem;
+      background: var(--card-bg);
+      border-radius: var(--rounded-lg);
+      padding: 3.5rem;
       margin: 3rem 0;
       text-align: center;
-      border: 2px solid var(--harvest-gold);
+      border: 1px solid rgba(45, 106, 79, 0.1);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .sms-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(45,106,79,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,106,79,0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
     .sms-section h3 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       font-size: 2rem;
-      color: var(--earth-brown);
+      color: var(--forest);
+      position: relative;
     }
-    
+
     .sms-intro {
       max-width: 600px;
       margin: 0 auto 30px;
-      font-size: 1.1rem;
-      color: var(--light-text);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      position: relative;
     }
-    
+
     .sms-form {
-      max-width: 500px;
+      max-width: 440px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 14px;
+      position: relative;
     }
-    
+
     .sms-form input[type="tel"] {
-      padding: 16px;
-      border: 2px solid var(--harvest-gold);
-      border-radius: 30px;
+      padding: 14px 20px;
+      border: 2px solid rgba(45, 106, 79, 0.15);
+      border-radius: 8px;
       font-size: 1rem;
+      font-family: 'Nunito Sans', sans-serif;
       background: var(--white);
+      color: var(--dark-text);
+      transition: border-color 0.3s ease;
     }
-    
+    .sms-form input[type="tel"]:focus {
+      outline: none;
+      border-color: var(--topo-green);
+      box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+    }
+
     .sms-form input[type="submit"] {
-      padding: 16px;
+      padding: 14px 20px;
       border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      border-radius: 8px;
+      background: var(--topo-green);
       color: var(--white);
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
+      font-family: 'Nunito Sans', sans-serif;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+      letter-spacing: 0.02em;
     }
-    
+
     .sms-form input[type="submit"]:hover {
+      background: var(--topo-green-light);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.3);
+      box-shadow: 0 8px 28px rgba(45, 106, 79, 0.3);
     }
-    
+
     .consent-text {
       margin-top: 10px;
       font-size: 0.8rem;
-      color: var(--light-text);
+      color: var(--muted-text);
       text-align: left;
     }
-    
-    /* Footer */
+
+    /* ============================================
+       FOOTER
+       ============================================ */
     footer {
-      padding: 40px 20px;
-      background: var(--earth-brown);
+      padding: 50px 20px 40px;
+      background: var(--forest);
       color: var(--white);
       text-align: center;
       font-size: 0.9rem;
+      position: relative;
     }
-    
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--topo-green), var(--teal), var(--copper), var(--teal), var(--topo-green));
+    }
+
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
       margin-bottom: 3rem;
       max-width: 1200px;
       margin: 0 auto 3rem;
       text-align: left;
     }
-    
+
     .footer-logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .footer-logo img {
       height: 40px;
       border-radius: 10px;
     }
-    
+
     .footer-logo h2 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 0;
       color: var(--white);
     }
-    
+
     .footer-about p {
       margin-bottom: 1.5rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(245, 240, 232, 0.7);
+      line-height: 1.7;
     }
-    
+
     .footer-links h3 {
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
-      color: var(--white);
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+      color: var(--copper-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
     }
-    
+
     .footer-links ul {
       list-style: none;
     }
-    
+
     .footer-links ul li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
-    
+
     .footer-links ul li a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(245, 240, 232, 0.7);
       transition: all 0.2s ease;
+      font-size: 0.9rem;
     }
-    
+
     .footer-links ul li a:hover {
       color: var(--white);
       padding-left: 0.25rem;
     }
-    
+
+    .footer-links ul li code {
+      color: rgba(245, 240, 232, 0.7);
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.05);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
     .copyright {
       text-align: center;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.875rem;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+      color: rgba(245, 240, 232, 0.5);
+      font-size: 0.85rem;
     }
-    
-    /* Sticky CTA for Mobile */
+
+    /* ============================================
+       STICKY CTA FOR MOBILE
+       ============================================ */
     .sticky-cta {
       display: none;
       position: fixed;
@@ -725,126 +965,200 @@
       left: 0;
       width: 100%;
       background: var(--white);
-      padding: 15px;
-      box-shadow: 0 -2px 20px rgba(139, 69, 19, 0.2);
+      padding: 14px;
+      box-shadow: 0 -4px 24px rgba(26, 58, 42, 0.12);
       z-index: 100;
       text-align: center;
-      border-top: 2px solid var(--harvest-gold);
+      border-top: 2px solid var(--topo-green);
     }
-    
+
     .sticky-cta a {
       display: inline-block;
       padding: 12px 24px;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      background: var(--topo-green);
       color: var(--white);
-      border-radius: 30px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      font-family: 'Nunito Sans', sans-serif;
       width: 80%;
       max-width: 300px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+      letter-spacing: 0.02em;
     }
-    
-    /* Responsive Styles */
+
+    /* ============================================
+       RESPONSIVE STYLES
+       ============================================ */
     @media screen and (max-width: 1100px) {
       .app-cta {
         gap: 0.5rem;
       }
-      
+
       .btn {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
       }
-      
+
       .get-app-btn, .qr-button, .qr-button-top {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
       }
     }
-    
+
     @media screen and (max-width: 992px) {
       .hero-content {
         flex-direction: column;
         text-align: center;
       }
-      
+
       .hero-text, .hero-image {
         max-width: 100%;
       }
-      
-      .feature-list {
-        grid-template-columns: 1fr;
+
+      .hero-tagline {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
       }
-      
+
+      .hero-benefits {
+        display: inline-block;
+        text-align: left;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      /* Switch feature trail to single-column */
+      .feature-trail::before {
+        left: 28px;
+        transform: none;
+      }
+      .feature-item,
+      .feature-item:nth-child(even) {
+        flex-direction: column;
+        padding-left: 72px;
+      }
+      .feature-marker {
+        left: 28px;
+        transform: translateX(-50%);
+        top: 0;
+      }
+      .feature-card,
+      .feature-spacer {
+        max-width: 100%;
+      }
+      .feature-spacer {
+        display: none;
+      }
+      .feature-item:nth-child(even) .feature-card {
+        text-align: left;
+      }
+      .feature-item:nth-child(even) .feature-card-icon {
+        margin-left: 0;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-      
+
       .nav-links {
         position: fixed;
         top: 70px;
         left: 0;
         right: 0;
-        background: var(--cream);
+        background: rgba(245, 240, 232, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         padding: 1.5rem;
         flex-direction: column;
-        box-shadow: 0 4px 20px rgba(139, 69, 19, 0.2);
+        box-shadow: 0 4px 20px rgba(26, 58, 42, 0.1);
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
       }
-      
+
       .nav-links.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
       }
-      
+
       .app-cta {
         display: none;
       }
-      
+
       .hamburger {
         display: block;
       }
     }
-    
+
     @media screen and (max-width: 768px) {
+      .hero {
+        padding: 8rem 0 5rem;
+      }
+
       .hero h1 {
         font-size: 2.5rem;
       }
-      
+
       .section-heading h2 {
         font-size: 2rem;
       }
-      
+
       .hero-cta {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .sms-form {
         flex-direction: column;
       }
-      
+
       .sticky-cta {
         display: block;
       }
+
+      .compass-rose {
+        display: none;
+      }
     }
-    
+
     @media screen and (max-width: 576px) {
       .hero h1 {
         font-size: 2rem;
       }
-      
+
       .section-heading h2 {
         font-size: 1.75rem;
       }
-      
+
       .cta-section, .sms-section {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .feature-card {
+        padding: 2rem;
+      }
+
+      .feature-item,
+      .feature-item:nth-child(even) {
+        padding-left: 60px;
+      }
+
+      .feature-trail::before {
+        left: 22px;
+      }
+
+      .feature-marker {
+        left: 22px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -884,6 +1198,21 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
+    <!-- Compass rose decorative element -->
+    <svg class="compass-rose" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(245,240,232,0.5)" stroke-width="0.8"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(245,240,232,0.3)" stroke-width="0.5"/>
+      <line x1="50" y1="2" x2="50" y2="98" stroke="rgba(245,240,232,0.4)" stroke-width="0.6"/>
+      <line x1="2" y1="50" x2="98" y2="50" stroke="rgba(245,240,232,0.4)" stroke-width="0.6"/>
+      <line x1="15" y1="15" x2="85" y2="85" stroke="rgba(245,240,232,0.2)" stroke-width="0.4"/>
+      <line x1="85" y1="15" x2="15" y2="85" stroke="rgba(245,240,232,0.2)" stroke-width="0.4"/>
+      <polygon points="50,5 54,20 50,16 46,20" fill="rgba(245,240,232,0.5)"/>
+      <text x="50" y="12" text-anchor="middle" fill="rgba(245,240,232,0.45)" font-size="6" font-family="Bitter, serif" font-weight="700">N</text>
+      <text x="50" y="96" text-anchor="middle" fill="rgba(245,240,232,0.3)" font-size="5" font-family="Bitter, serif">S</text>
+      <text x="93" y="52" text-anchor="middle" fill="rgba(245,240,232,0.3)" font-size="5" font-family="Bitter, serif">E</text>
+      <text x="7" y="52" text-anchor="middle" fill="rgba(245,240,232,0.3)" font-size="5" font-family="Bitter, serif">W</text>
+    </svg>
+
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
@@ -919,40 +1248,70 @@
   <!-- Features Section -->
   <section class="features" id="features">
     <div class="container">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <h2>Perfect for Every Journey</h2>
         <p>Whether you're traveling, surveying, or exploring the great outdoors</p>
       </div>
-      <div class="feature-list">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-badge-sheriff"></i></div>
-          <h3>Law Enforcement</h3>
-          <p>No more guesswork about jurisdiction. Instantly know what county you're in with precise boundary information and crossing notifications.</p>
+      <div class="feature-trail">
+        <!-- Feature 1 -->
+        <div class="feature-item reveal reveal-delay-1">
+          <div class="feature-marker">1</div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-badge-sheriff"></i></div>
+            <h3>Law Enforcement</h3>
+            <p>No more guesswork about jurisdiction. Instantly know what county you're in with precise boundary information and crossing notifications.</p>
+          </div>
+          <div class="feature-spacer"></div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-drafting-compass"></i></div>
-          <h3>Land Surveyors</h3>
-          <p>Get precise county boundary lines and coastal boundaries. Essential tool for professional surveying and land development projects.</p>
+        <!-- Feature 2 -->
+        <div class="feature-item reveal reveal-delay-2">
+          <div class="feature-marker">2</div>
+          <div class="feature-spacer"></div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-drafting-compass"></i></div>
+            <h3>Land Surveyors</h3>
+            <p>Get precise county boundary lines and coastal boundaries. Essential tool for professional surveying and land development projects.</p>
+          </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-route"></i></div>
-          <h3>Road Trip Enthusiasts</h3>
-          <p>Track your journey across county lines. Perfect for county hunters and travelers exploring different regions of the United States.</p>
+        <!-- Feature 3 -->
+        <div class="feature-item reveal reveal-delay-3">
+          <div class="feature-marker">3</div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-route"></i></div>
+            <h3>Road Trip Enthusiasts</h3>
+            <p>Track your journey across county lines. Perfect for county hunters and travelers exploring different regions of the United States.</p>
+          </div>
+          <div class="feature-spacer"></div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-binoculars"></i></div>
-          <h3>Birders & Nature Lovers</h3>
-          <p>Document your wildlife sightings with precise location data. Know exactly which county you spotted that rare bird or unique flora.</p>
+        <!-- Feature 4 -->
+        <div class="feature-item reveal reveal-delay-4">
+          <div class="feature-marker">4</div>
+          <div class="feature-spacer"></div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-binoculars"></i></div>
+            <h3>Birders & Nature Lovers</h3>
+            <p>Document your wildlife sightings with precise location data. Know exactly which county you spotted that rare bird or unique flora.</p>
+          </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-anchor"></i></div>
-          <h3>Boaters & Mariners</h3>
-          <p>Navigate coastal waters with confidence. View coastal county boundary lines and know your exact jurisdictional waters.</p>
+        <!-- Feature 5 -->
+        <div class="feature-item reveal reveal-delay-5">
+          <div class="feature-marker">5</div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-anchor"></i></div>
+            <h3>Boaters & Mariners</h3>
+            <p>Navigate coastal waters with confidence. View coastal county boundary lines and know your exact jurisdictional waters.</p>
+          </div>
+          <div class="feature-spacer"></div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-mountain"></i></div>
-          <h3>Outdoor Adventurers</h3>
-          <p>Explore with confidence knowing your exact location. Interactive map with zoom and pan features for detailed exploration.</p>
+        <!-- Feature 6 -->
+        <div class="feature-item reveal reveal-delay-6">
+          <div class="feature-marker">6</div>
+          <div class="feature-spacer"></div>
+          <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-mountain"></i></div>
+            <h3>Outdoor Adventurers</h3>
+            <p>Explore with confidence knowing your exact location. Interactive map with zoom and pan features for detailed exploration.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -960,7 +1319,7 @@
 
   <!-- SMS Section -->
   <div class="container">
-    <section class="sms-section" id="sms">
+    <section class="sms-section reveal" id="sms">
       <h3>Get the App Link via SMS</h3>
       <p class="sms-intro">Enter your mobile number and we'll send you a direct download link to find out what county you're in right now</p>
       <form id="smsForm" class="sms-form" aria-label="SMS app link request form">
@@ -975,7 +1334,7 @@
 
   <!-- CTA Section -->
   <div class="container">
-    <section class="cta-section" id="download">
+    <section class="cta-section reveal" id="download">
       <h2>Never Wonder "What County Am I In?" Again</h2>
       <p>Download County Names & Lines today and always know your precise location with detailed county lines and boundaries.</p>
       <a href="https://apps.apple.com/app/apple-store/id6474261068?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn qr-button-top">
@@ -1038,23 +1397,23 @@
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-    
+
     // Function to scroll to SMS section
     function scrollToSMS() {
       const smsSection = document.getElementById('sms');
       const headerHeight = document.querySelector('header').offsetHeight;
       const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
-      
+
       window.scrollTo({
         top: smsPosition - headerHeight - 20,
         behavior: 'smooth'
       });
     }
-    
+
     // SMS Form Submission
     document.getElementById('smsForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1079,19 +1438,19 @@
       })
       .catch(err => console.error(err));
     });
-    
+
     // Show/hide sticky CTA based on scroll position
     window.addEventListener('scroll', function() {
       const stickyCta = document.querySelector('.sticky-cta');
       const heroSection = document.getElementById('home');
-      
+
       if (window.scrollY > heroSection.offsetHeight) {
         stickyCta.style.display = 'block';
       } else {
         stickyCta.style.display = 'none';
       }
     });
-    
+
     // Disable hover for touch devices
     document.addEventListener('DOMContentLoaded', function() {
       if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
@@ -1099,13 +1458,30 @@
         qrPopups.forEach(popup => {
           popup.style.display = 'none';
         });
-        
+
         const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
         qrButtons.forEach(button => {
           button.style.pointerEvents = 'auto';
         });
       }
     });
+
+    // Scroll-triggered reveal animations
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
   </script>
   <!-- 100% privacy-first analytics -->
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
